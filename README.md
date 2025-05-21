@@ -13,7 +13,7 @@ FAISS is amazing, but using it directly means tons of boilerplate. Vector DBs ar
 ## Features
 
 - Convert text/tags to vectors using Sentence Transformers
-- Search with FAISS for fast (near O(1)) lookups
+- Search with FAISS for fast (near O(n)) lookups (depends on the used similarity metric, ranking strategy, etc...)
 - Support for different storage backends (memory, PostgreSQL/pgvector)
 - Clean API that hides all the vector complexity 
 - Persistence and import/export support
@@ -257,6 +257,7 @@ The main performance hit is usually loading the embedding model (~3s), but that'
 ## Roadmap
 
 Some things I'm planning to add:
+- [ ] Add support for Indexing caching / saving
 - [ ] More embedding models (OpenAI, Cohere, etc)
 - [ ] Batched operations for better throughput
 - [ ] Support for more vector DBs (Pinecone, Milvus, etc)
