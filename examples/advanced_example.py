@@ -3,10 +3,6 @@
 Advanced usage example for the refactored fl-rank.
 """
 
-import time
-from pprint import pprint
-import numpy as np
-
 from fl_rank import RankingService
 from fl_rank.embeddings import SentenceTransformerEmbedding
 from fl_rank.indexes import FaissIndex
@@ -14,7 +10,6 @@ from fl_rank.storage import InMemoryStorage
 from fl_rank.preprocessing import (
     PreprocessingPipeline,
     CompoundTagTokenizer,
-    LowercaseNormalizer,
     VersionStripNormalizer,
     StopwordFilter,
     UniformWeighter
@@ -26,7 +21,7 @@ from fl_rank.ranking import (
     WeightedRankingStrategy
 )
 
-# Define job listings
+# Job listings
 listings = [
     {
         "id": "job1",
@@ -70,12 +65,12 @@ listings = [
     }
 ]
 
-# Define user profile
+# User profile
 user_skills = ["javascript", "Python3.7", "ReactJS", "data visualization", "algorithms"]
 
 print("===== BASIC RANKING WITH DEFAULT SETTINGS =====")
 
-# Create a basic service with defaults
+# define a basic service with defaults
 basic_service = RankingService(
     embedding_model=SentenceTransformerEmbedding(),
     index=FaissIndex()
