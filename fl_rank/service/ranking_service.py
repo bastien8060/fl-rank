@@ -448,5 +448,9 @@ class RankingService:
         # Ensure vector is properly shaped
         if len(query_vector.shape) == 1:
             query_vector = query_vector.reshape(1, -1)
-        
+
+        # Normalize numeric query vectors if required
+        if self.normalize_vectors:
+            query_vector = normalize_vectors(query_vector)
+
         return query_vector
